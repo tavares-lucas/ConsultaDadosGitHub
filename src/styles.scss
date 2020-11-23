@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/scss/bootstrap";
+
+* {
+  outline: 0;
+}
+
+html, body {
+  height: 100%;
+  color: white;
+  background-color: #2C2C2C;
+}
+
+hr{
+  border: solid white 1px;;
+}
+
+.bg{
+    width: 100%;
+}
+
+input.ng-invalid.ng-touched {
+  @extend .is-invalid;
+}
+input.ng-touched.ng-valid {
+  @extend .is-valid;
+}

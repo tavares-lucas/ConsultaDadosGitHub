@@ -1,0 +1,45 @@
+<section class="bg mt-5">
+  <div class="container">
+    <form [formGroup]="dateSend">
+      <div class="row">
+        <div class="col-12 text-center mt-5">
+          <h1 class="text-center my-3">
+            <img src="../../../assets/compasso-uol.png.webp" alt="Compasso Uol" title="Compasso Uol">
+          </h1>
+          <p class="text-center">Request Service GitHub by: <strong>tavares-lucas</strong></p>
+        </div>
+        <div class="col-12 col-md-12 col-lg-12">
+          <div class="my-2">
+            <label>Buscar no GitHub</label>
+            <div class="d-flex">
+              <input type="text" class="form-control" placeholder="Copie meu nome acima ou digite o seu nome á ser buscado no github"
+                formControlName="name" />
+              <button class="btn btn-primary ml-2" (click)="sendData()">Buscar</button>
+              <button *ngIf="showButtonLink" class="btn btn-secondary ml-2" (click)="goGit()">Github</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-12">
+          <div class="my-2" *ngIf="showUser">
+            <label>requestGitUser</label>
+            <br>
+            <small class="white">{{callbackUser | json}}</small>
+            <hr>
+          </div>
+          <div class="my-2" *ngIf="showRepos">
+            <label>requestGitRepos</label>
+            <br>
+            <small class="white">{{callbackRepos | json}}</small>
+            <hr>
+          </div>
+          <div class="my-2" *ngIf="showStarred">
+            <label>requestGitStarred</label>
+            <br>
+            <small class="white">{{callbackStarred | json}}</small>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
