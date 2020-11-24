@@ -33,8 +33,8 @@ export class PageComponent implements OnInit {
     });
   }
   sendData() {
-    let name = this.dateSend.value.name;
     //user
+    let name = this.dateSend.value.name;
     this.service.requestGitUser(name).subscribe((response: any) => {
       this.callbackUser = response;
       this.showUser = true;
@@ -49,8 +49,8 @@ export class PageComponent implements OnInit {
   }
 
   CallReturn(){
-    let name = this.dateSend.value.name;
     //repos
+    let name = this.dateSend.value.name;
     this.service.requestGitRepos(name).subscribe((response: any) => {
       this.callbackRepos = response;
       this.showRepos = true;
@@ -63,16 +63,13 @@ export class PageComponent implements OnInit {
   }
   
   CallCallReturn(){
+    //starred
     this.inbody = {
       name: this.dateSend.value.name,
       owner: this.callbackUser.login,
       repo: 'hello-world'
     };
-
-    //starred
-
     // Falta incluir Oauth accssen_token github
-
     this.service.requestGitStarred(this.inbody).subscribe((response: any) => {
       this.callbackStarred = response;
       this.showStarred = true;
