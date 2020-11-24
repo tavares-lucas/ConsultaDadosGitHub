@@ -70,6 +70,9 @@ export class PageComponent implements OnInit {
     };
 
     //starred
+
+    // Falta incluir Oauth accssen_token github
+
     this.service.requestGitStarred(this.inbody).subscribe((response: any) => {
       this.callbackStarred = response;
       this.showStarred = true;

@@ -11,6 +11,9 @@ export class ServiceComponent {
     private http: HttpClient
   ) { }
 
+  // token() {
+  //   return this.http.get(`${'https://github.com/login/oauth/authorize'}` + `${'client_id=bd780c3436a7180e3f2a'}`);
+  // }
   requestGitUser(name:string) {
     return this.http.get(`${'https://api.github.com/users/'}` + name);
   }
