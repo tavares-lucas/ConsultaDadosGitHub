@@ -18,6 +18,7 @@ export class ServiceComponent {
     return this.http.get(`${'https://api.github.com/users/'}` + name + `${'/repos'}`);
   }
   requestGitStarred(inbody:any) {
-    return this.http.get(`${'https://api.github.com/users/'}` + inbody['name'] + `${'/starred/'}` + inbody['owner'] + `${'/'}` + inbody['repo']);
+    // return this.http.get(`${'https://api.github.com/users/'}` + inbody['name'] + `${'/starred/'}` + inbody['owner'] + `${'/'}` + inbody['repo']);
+    return this.http.get(`${'https://api.github.com/users/'}` + inbody['name'] + `${'/starred'}`);
   }
 }

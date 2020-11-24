@@ -65,8 +65,8 @@ export class PageComponent implements OnInit {
   CallCallReturn(){
     this.inbody = {
       name: this.dateSend.value.name,
-      repo: 'tavares-lucas',
-      owner: 'hello-world'
+      owner: this.callbackUser.login,
+      repo: 'hello-world'
     };
 
     //starred
