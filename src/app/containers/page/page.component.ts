@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ServiceComponent } from '../../services/service/service.component'
-
+import { ServiceComponent } from '../../services/service/service.component';
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html'
@@ -13,17 +12,14 @@ export class PageComponent implements OnInit {
     private service: ServiceComponent,
   ) { }
 
-
   showUser: boolean = false;
   showRepos: boolean = false;
   showStarred: boolean = false;
   showButtonLink: boolean = false;
-
   dateSend!: FormGroup;
   callbackUser: any;
   callbackRepos: any;
   callbackStarred: any;
-
   url: string = '';
   inbody: any = [];
 
@@ -32,6 +28,7 @@ export class PageComponent implements OnInit {
       name: ['', Validators.required],
     });
   }
+
   sendData() {
     //user
     let name = this.dateSend.value.name;
@@ -76,8 +73,8 @@ export class PageComponent implements OnInit {
     }, error => {
       console.log(error)
     });
-
   }
+
   goGit(){
     let linktarget = this.url;
     let link = document.createElement("a");
