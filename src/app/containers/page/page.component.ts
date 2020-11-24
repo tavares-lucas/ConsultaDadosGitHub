@@ -37,7 +37,7 @@ export class PageComponent implements OnInit {
       this.showUser = true;
       this.showButtonLink = true;
       this.url = this.callbackUser.html_url;
-      if(this.callbackUser){
+      if (this.callbackUser) {
         this.CallReturn();
       }
     }, error => {
@@ -45,28 +45,27 @@ export class PageComponent implements OnInit {
     });
   }
 
-  CallReturn(){
+  CallReturn() {
     //repos
     let name = this.dateSend.value.name;
     this.service.requestGitRepos(name).subscribe((response: any) => {
       this.callbackRepos = response;
       this.showRepos = true;
-      if(this.callbackRepos){
+      if (this.callbackRepos) {
         this.CallCallReturn();
       }
     }, error => {
       console.log(error)
     });
   }
-  
-  CallCallReturn(){
+
+  CallCallReturn() {
     //starred
     this.inbody = {
       name: this.dateSend.value.name,
       owner: this.callbackUser.login,
       repo: 'hello-world'
     };
-    // Falta incluir Oauth accssen_token github
     this.service.requestGitStarred(this.inbody).subscribe((response: any) => {
       this.callbackStarred = response;
       this.showStarred = true;
@@ -75,10 +74,14 @@ export class PageComponent implements OnInit {
     });
   }
 
-  goGit(){
+  myToken(){
+    this.service.token();
+  }
+
+  goGit() {
     let linktarget = this.url;
     let link = document.createElement("a");
-        link.href = linktarget;
-        link.click();
+    link.href = linktarget;
+    link.click();
   }
 }
