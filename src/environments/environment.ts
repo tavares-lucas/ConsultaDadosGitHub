@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  id: '/oauth/authorize?client_id=bd780c3436a7180e3f2a'
+  // Favor utilizar o seu client_id para test 
+  id: 'authorize?client_id=bd780c3436a7180e3f2a'
 };
 
 /*

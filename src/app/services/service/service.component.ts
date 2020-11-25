@@ -14,16 +14,16 @@ export class ServiceComponent {
   ) { }
 
   token() {
-    return window.location.href = (`${'https://github.com/login'}` + `${key}`);
+    console.log(key)
+    return window.location.href = (`${'https://github.com/login/oauth/' + key }`);
   }
   requestGitUser(name:string) {
-    return this.http.get(`${'https://api.github.com/users/'}` + name);
+    return this.http.get(`${'https://api.github.com/users/' + name }` );
   }
   requestGitRepos(name:string) {
-    return this.http.get(`${'https://api.github.com/users/'}` + name + `${'/repos'}`);
+    return this.http.get(`${'https://api.github.com/users/' + name }` + `${'/repos'}`);
   }
   requestGitStarred(inbody:any) {
-    // return this.http.get(`${'https://api.github.com/users/'}` + inbody['name'] + `${'/starred/'}` + inbody['owner'] + `${'/'}` + inbody['repo']);
-    return this.http.get(`${'https://api.github.com/users/'}` + inbody['name'] + `${'/starred'}`);
+    return this.http.get(`${'https://api.github.com/users/' + inbody['name'] + '/starred'}`);
   }
 }
