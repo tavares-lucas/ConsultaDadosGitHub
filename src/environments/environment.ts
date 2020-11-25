@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  id: '/oauth/authorize?client_id=bd780c3436a7180e3f2a'
 };
 
 /*

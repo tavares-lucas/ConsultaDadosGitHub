@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
+var key = environment.id
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +14,7 @@ export class ServiceComponent {
   ) { }
 
   token() {
-    return window.location.href = (`${'https://github.com/login/oauth/authorize?client_id=bd780c3436a7180e3f2a'}`);
+    return window.location.href = (`${'https://github.com/login'}` + `${key}`);
   }
   requestGitUser(name:string) {
     return this.http.get(`${'https://api.github.com/users/'}` + name);
